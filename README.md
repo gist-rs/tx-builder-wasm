@@ -6,9 +6,7 @@ Transaction Builder made in Wasm to use on edge/browser/cli
 
 [Solana Pay transfer spec](https://docs.solanapay.com/spec#specification-transfer-request) can be use only on mobile, and to accomplish the same thing on web wallet (`Phantom`) we will need a lot of `web3.js` dependency and [builder/helper code](https://github.com/solana-labs/solana-pay/blob/master/core/src/createTransfer.ts) for create simple transfer transaction.
 
-### Before
-
-`dApp` will need `web3.js` and `tx_builder` code to make a transfer transaction.
+> `dApp` will need `web3.js` and `tx_builder` code to make a transfer transaction.
 
 ```mermaid
 graph LR
@@ -19,7 +17,7 @@ graph LR
 
 Use `web3.wasm` = `web3` + `tx-builder` on the edge and/or browser.
 
-### After
+### Usage Options
 
 1. Keep compatible (Fully trust browser): `dApp` can still use `web3.wasm` as usual; plus able to build transfer transaction.
 
@@ -45,8 +43,13 @@ graph LR
 
 ## Use cases
 
-- `dApp` can make a payment `Button` for some specified token amount from user _without_ any `web3.js` lib required on both mobile app with `solana pay`'s deeplink (already exists solution) and on web with browser/edge (our solution).
+- `dApp` can make a 1 liner code payment `Button` for some specified token amount from user _without_ any `web3.js` lib required on both mobile app with `solana pay`'s deeplink (existing solution) and on web with browser/edge (our solution).
 - `dApp` can ensure that built transaction is not compromise by doing cross check between browser and on-edge.
+
+## Other ideas
+
+- Can be use with `Continue with Web3` button (sign to login).
+- Can be use with `NFT` paywall link (verify and redirect).
 
 ## Supported By
 
